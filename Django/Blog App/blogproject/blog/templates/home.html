@@ -1,0 +1,101 @@
+<!-- https://gist.github.com/jun108059/32f94be4692125b6bdc5013e9d5c2d12-->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- bootstrap4 CSS CDN 부분 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Likelion8th</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link active" href="{% url 'home' %}">Home</span></a>
+          <a class="nav-item nav-link" href="#">Blog</a>
+          <a class="nav-item nav-link" href="#">내정보</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- bootstrap4 js관련 CDN 부분 -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+
+  <!-- 참고: https://ssungkang.tistory.com/entry/Django-11-Pagination-을-알아보자-->
+
+  {% block content %}
+
+  <div class="container">
+    <!-- posts.all로 하면 한 페이지에 포스트 다 올라오고 post로 해야 세개만 뜸-->
+    {% for post in post %}
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <!-- 이거 blog.title로 하면 안되고 post.title로 해야 뜸-->
+        <h5 class="card-title">{{ post.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ post.pub_date }}</h6>
+        <p class="card-text">{{post.summary}}</p>
+        <!-- 전문대신 summary만 출력: post.body에서 post.summary로 -->
+        <a href="{%url 'detail' post.id %}" class="card-link"> ...more</a>
+      </div>
+    </div>
+    <br>
+    {% endfor %}
+
+    <div style="text-align:center">
+      <!-- home.html에서 new.html로 넘어가는 링크:  -->
+      <a href="{% url 'new' %}">Add Post</a>
+    </div>
+
+    <!-- 이전페이지, 다음페이지 추가 -->
+    <!-- code review:: https://gist.github.com/jun108059/f262e6d8f230d08cb142f0f22dcaf1ad-->
+
+    <!-- 현재 보여지고 있는 페이지가 posts 일 때, 이전 페이지가 존재하는지 확인. posts 페이지가 1이라면 이하내용은 출력 X-->
+    <!-- has_previous() 메소드: 이전 페이지의 유무를 boolean 으로 반환 -->
+    {% if post.has_previous %}
+    <!-- 첫페이지로 돌아가기 (page를 1로 설정해서) -->
+    <a href="?page=1">First</a>
+    <!-- posts의 이전페이지 -->
+    <a href="?page={{post.previous_page_number}}">Previous</a>
+    {%endif%}
+
+    <!-- 현재 페이지 번호-->
+    <!-- posts_num이!!! 아니라 post-->
+    <span>{{post.number}}</span>
+    <span> of </span>
+    <!-- posts의 전체 페이지 개수 -->
+    <span>{{post.paginator.num_pages}}</span>
+
+    <!-- 다음 페이지가 존재하는지 체크. 마지막이라면 if 이하 실행 X -->
+    {% if post.has_next %}
+    <!-- 여기도 posts_num이 아니라 post-->
+    <a href="?page={{post.next_page_number}}">Next</a>
+    <!-- 페이지 전체-->
+    <a href="?page={{post.paginator.num_pages}}">Last</a>
+    {%endif%}
+  </div>
+  {% endblock %}
+</body>
+
+</html>

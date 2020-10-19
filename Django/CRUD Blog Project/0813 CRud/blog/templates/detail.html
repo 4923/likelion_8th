@@ -1,0 +1,18 @@
+<!-- 상세페이지를 출력하는 모든 게시글은 detail 페이지를 필요로 함. 등록한 게시글 수만큼 detail 페이지가 필요하다.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.pub_date }}</p>
+        <p>{{ post.body }}</p>
+    </div>
+    <a href="{% url 'home' %}">돌아가기</a>
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+<h1>멋쟁이 사자처럼 코딩세션 [HTML-1]</h1>
+<h2>시작하며 (Intro)</h2>
+<center>
+    <img src="main.png" height="500" width="500">
+</center>
+
+<!-- HTML 요소 -->
+<!--
+# 태그 1
+    <h1>멋쟁이 사자처럼 코딩세션 [HTML-1]</h1>
+    시작태그              내용            종료태그
+    태그는 < 와 > 를 이용해 구분
+
+# 이미지 태그
+    <img src="main.png" height="500" width="500">
+    <태그이름, 속성이름 = "속성값" 속성이름="속성값" 속성이름="속성값">
+    <img> 
+    : 이미지 파일의 경로 - src (source)
+    : 이미지의 크기 - height, width
+    img 파일은 html 파일과 함께 저장할 것
+-->
+
+    <p>저희 <strong>‘멋쟁이사자처럼’</strong>은 프로그래밍 단체입니다.
+    하지만 어떤 프로그래밍을 강의식으로 가르치고
+    끝나는 단체가 아니라 중.장기적인 목표를 가지고 있습니다.
+    <mark>‘내 아이디어를 내 손으로 실현한다.'</mark>
+    라는 표어를 가지고서 여러분의 아이디어를
+    생각 속에만 머물게 하지 않고,세상에 나오게 할 수 있게
+    힘을 길러주는 곳입니다.</p>
+
+<!-- p is for paragraph : 단락사이의 간격 고정 -->
+<!-- br is for break, just a request; no closing tag -->
+<!-- 단락표현 : 줄바꿈 태그보다 p태그가 좋음-->
+
+<!-- strong, b is for bold -->
+<!-- 시각장애인을 위한 낭독기는 <srong>을 강조로 인식하지만 <b>는 인식하지 못함-->
+<!-- CSS는 정보를 꾸밈, HTML은 정보를 표현-->
+
+<!-- 형광색 : mark, 취소선 : del-->
+
+    <p style="margin-top:50px">그 <b>수단</b>으로 멋사는 '웹 서비스'를 선택했고, 
+    여러분은 직접 웹 서비스를 만들어보며 아이디어를
+    실현시키는 경험을 하게 될 겁니다.<br>
+    저희 운영진들과 같이 프로그래밍 공부를 시작하고, 
+    <del>8월</del> 9월에 예정된 해커톤을 발판삼아 프로그래밍에
+    재미를 붙일 수 있으면 좋겠습니다.</p>
+
+
+<!-- li is for list-->
+<!-- ul is for unordered list
+: make a boundary of list-->
+<!-- ul : parent / li : child 고정-->
+<!-- hr is for horizontal -->
+
+<!--parent tag-->
+<ul><h2> 리스트 1 </h2>
+    <!--child tag-->
+    <hr>
+    <li>시작하며(Intro)</li>
+    <li>웹 기본(Web_basic)</li>
+    <li>HTML</li>
+</ul>
+
+<!-- 순서가 있는 리스트
+ol is for ordered list-->
+<ol><h2> 리스트 2</h2>
+    <hr>
+    <li>firstpage</li>
+    <li>tag</li>
+    <li>text</li>
+</ol>
+
+<!-- <li></li> 귀찮다!
+: ul>li*10 하고 엔터 누르면 자동으로 리스트 생성됨
+-->
+
+<!-- DOCTYPE : 문서유형 지정 -->
+<!DOCTYPE html>
+
+    <!-- opening tag / 닫는태그 어디에있는데? -->
+    <html lang="ko">
+
+    <!-- head: 브라우저에게 정보 제공
+    : 브라우저가 알아야 할 부분 시작
+    : 외부파일들도 이곳에 링크-->
+    <head>
+
+        <!-- meta : 웹문서와 관련된 정보 저장
+        : line 91 인코딩 방식 저장
+        : line 92 뷰포트, 모바일 기기 고려-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- title : 문서 제목, 제목표시줄 표시 -->
+        <title>첫 번째 웹 페이지</title>
+    </head>
+
+    <!-- body : 웹페이지 안에 들어갈 내용 -->
+    <body>
+        <h1>멋쟁이사저처럼 코딩세션[HTML-1]</h1>
+        <h2>시작하며(Intro)</h2>
+
+        <center>
+            <img src="main.png" height="500" width="500">
+        </center>
+
+        <p>
+            저희 <strong>‘멋쟁이사자처럼’</strong>은 프로그래밍 단체입니다.
+            하지만 어떤 프로그래밍을 강의식으로 가르치고
+            끝나는 단체가 아니라 중.장기적인 목표를 가지고 있습니다.
+            <mark>‘내 아이디어를 내 손으로 실현한다.'</mark>
+            라는 표어를 가지고서 여러분의 아이디어를
+            생각 속에만 머물게 하지 않고,세상에 나오게 할 수 있게
+            힘을 길러주는 곳입니다.
+        </p>
+
+
+        <p style="margin-top:50px">
+            그 <b>수단</b>으로 멋사는 '웹 서비스'를 선택했고, 
+            여러분은 직접 웹 서비스를 만들어보며 아이디어를
+            실현시키는 경험을 하게 될 겁니다.<br>
+            저희 운영진들과 같이 프로그래밍 공부를 시작하고, 
+            <del>8월</del> 9월에 예정된 해커톤을 발판삼아 프로그래밍에
+            재미를 붙일 수 있으면 좋겠습니다.
+        </p>
+
+        <ul><h2>리스트 1</h2>
+            <hr>
+            <li>시작하며(Intro)</li>
+            <li>웹 기본(Web_basic)</li>
+            <li>HTML</li>
+        </ul>
+
+        <ol><h2>리스트 2</h2>
+            <hr>
+            <li>firstpage</li>
+            <li>tag</li>
+            <li>text</li>
+        </ol>
+
+        <dl><h2>리스트 3</h2>
+          <hr>
+          <dt>제목 태그</dt>
+            <dd>태그 형식 : hn</dd>
+            <dd>세부 내용 : h1~h6까지 글자크기를 조정한 제목 태그를 달 수 있다.</dd>
+            <dd>닫는 태그 여부 : 0</dd>
+          <dt>이미지 태그</dt>
+            <dd>태그 형식 : img</dd>
+            <dd>세부 내용 : 이미지를 추가하며, 이미지의 속성을 정할 수 있다.</dd>
+            <dd>닫는 태그 여부 : X</dd>
+        </dl>
+        
+
+        <!--
+          <dl>은 반드시 하나 이상의 <dt><dd>짝을 담고 있어야 함.
+          <dt>,<dd>는 <dl> 밖에서 독립적으로 사용할 수 없음
+          BUT <dt>와 <dd>가 항상 짝지어져야 하는 것은 아님
+            ex) dt-dd-dd / dt-dt-dd
+        -->
+
+        <!--
+          기본 형태
+        <a href = "링크할 주소" [속성 = "속성 값"]> 텍스트 </a>
+        <a href = "링크할 주소" [속성 = "속성 값"]><img src = "이미지 파일 경로"></a>
+
+        href = h(ypertext) ref(erence)
+        -->
+        
+    </body>
+

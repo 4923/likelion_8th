@@ -1,0 +1,80 @@
+<!-- Bootstrap의 디자인 요소를 로커로 가져오는 방법 -->
+<!-- Bootstrap CDN: 하단의 코드를 html에 옮겨적으면 CSS, JS가 로드된다 -->
+
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+{% extends 'base.html' %}
+{% block content %}
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>My Blog</h1>
+      <p class="lead text-muted">Like-Lion Blog project</p>
+      <p>
+        <a href="{%url 'new' %}" class="btn btn-primary my-2">New Post</a>
+        <a href="{%url 'create10' %}" class="btn btn-secondary my-2">create 10 Post</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <!-- 반복문으로 포스트 출력하기 -->
+        {% for post in posts.all %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <!-- 이미지가 비어있지 않으면 != '' -->
+            {%if post.image != '' %}
+            <img class="card-img-top" src="{{ post.image.url }}" height="225" alt="Card img cap ">
+
+            <!-- 이미지가 비어있으면 -->
+            {% else %}
+            <!-- 원래 기본 이미지 출력-->
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">No
+                image</text></svg>
+            {% endif %}
+
+            <div class="card-body">
+              <h4> {{ post.title }}</h4>
+              <p class="card-text">{{ post.summary }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <!-- 버튼태그에 링크걸기: onclick="location.href={% url 'detail' post.id%}" 속성 추가하기-->
+                <!-- onclick tag: <button type="button" onclick="location.href='joinUs.jsp' "> -->
+                <!-- 세미콜론이 필요하다고 PROBLEMS에 뜨는데 뭐지 >> 문제없이 돌아가니까 일단 넘어감... -->
+                <!-- Edit/Delete-->
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                      onclick="location.href= '{% url 'detail' post.id %}';"> View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                      onclick="location.href='{% url 'delete' post.id %}';">Del</button>
+                  </div>
+                  <small class="text-muted">{{ post.pub_date }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock%}

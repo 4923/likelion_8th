@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form</title>
+    </head>
+    <body>
+        <h1>Form</h1>
+        <ol><h2>목차</h2>
+            <li><a href = "index.html" target = "_blank">Index</a></li>
+            <li><a href = "./01_link.html">Link</a></li>
+            <li><a href = "./02_table.html">Table</a></li>
+            <li><a href = "./03_form.html">Form</a></li>
+            <li><a href = "./04_semantic.html">Semantic</a></li>
+            <li><a href = "./05_multimedia.html">Multimedia</a></li>
+        </ol>
+        
+        <!-- action : 태그 안의 내용을 처리할 서버상의 프로그램 지정-->
+        <form action = "전송받을 대상 (python, php ...)">
+          아이디 : <input type = "text" name = "id">
+          비밀번호 : <input type = "password" name = "pw">
+          <input type = "submit">
+        </form>
+        <br><br>
+
+
+        <form action = "전송받을 대상">
+          제목 : <input type = "text" name = "title"><br>
+          <select>
+            <option value="question">질문글</option>
+            <option value="information">정보글</option>
+            <option value="promotion">홍보글</option>
+          </select><br>
+          내용 : <br>
+          <!-- 입력 공간 확보를 위해선 textarea 를 사용함-->
+          <textarea cols = "70" rows = "20"></textarea><br>
+          <input type = "submit">
+        </form>
+    </body>
+    </html>

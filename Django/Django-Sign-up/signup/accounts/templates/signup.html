@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 아래 코드를 바디안쪽에 넣어주세요 -->
+  <!-- 좌측 여백이 없길래 좌우 200px 여백 추가함-->
+  <div class="container" style="padding:100px 200px;">
+    <!-- 회원가입 폼을 작성했을 때 작동하는 action을 form tag에-->
+    <!-- method는 POST를 통해서 -->
+    <!-- 보안토큰 추가 -->
+    <h1>Sign Up!</h1>
+    <form method="POST" action="{%url 'signup' %}">
+      {% csrf_token %}
+      Username:
+      <br>
+      <input name="username" type="text" value="">
+      <br>
+      Email:
+      <br>
+      <input name="email" type="email" value="">
+      <br>
+      Password:
+      <br>
+      <input name="password1" type="password" value="">
+      <br>
+      Confirm Password:
+      <br>
+      <input name="password2" type="password" value="">
+      <br>
+      <br>
+      <input class="btn btn-primary" type="submit" value="Sign Up!">
+    </form>
+  </div>
+
+</body>
+
+</html>

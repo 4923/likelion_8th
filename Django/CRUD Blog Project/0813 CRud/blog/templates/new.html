@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div calss="container">
+      <form action = "{% url 'create' %}">
+            <h3>제목 : </h3>
+            <input type="text" name="title">
+            <br>
+            <br>
+            <h3>본문 : </h3>
+            <textarea cols=40 rows=10 name="body"></textarea>
+            <br>
+            <br>
+            <input type="submit" value="제출하기">
+        </form>
+    </div>
+</body>
+</html>

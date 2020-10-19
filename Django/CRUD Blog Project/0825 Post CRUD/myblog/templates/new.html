@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 여백 위한 container-->
+<div class="container">
+    <h1>New post</h1>
+    <br>
+    <!-- csrf 토큰: 보안과 관련됨! 중요!-->
+    <!-- method="POST" :: form 태그 안의 내용을 POST로 처리. 메소드 이름이므로 이 APP안의 Post와는 관계 X-->
+    <!-- enctype: 처리할 이미지 파일을 전송하는 속성-->
+    <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
+      <!-- {{ form.as_p }}로 form 만들기-->  
+      {{ form.as_p }}
+      <!-- Save 버튼-->
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+{% endblock%}

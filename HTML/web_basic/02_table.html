@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Table</title>
+    </head>
+    <body>
+        <h1>Table</h1>
+        <ol><h2>목차</h2>
+            <li><a href = "index.html" target = "_blank">Index</a></li>
+            <li><a href = "./01_link.html">Link</a></li>
+            <li><a href = "./02_table.html">Table</a></li>
+            <li><a href = "./03_form.html">Form</a></li>
+            <li><a href = "./04_semantic.html">Semantic</a></li>
+            <li><a href = "./05_multimedia.html">Multimedia</a></li>
+        </ol>
+
+        <!-- table의 여는 태그에 속성 추가 가능 (css에서 지정 가능)
+        경계값 지정, 내용물과 칸 여백 설정, 칸과 칸사이의 여백 삭제-->
+        <table border="1" cellpadding="5" style="border-collapse:collapse">
+          <tr>
+              <td>첫</td>
+              <td>번</td>
+              <td>째</td>
+          </tr>
+          <tr>
+              <td>두</td>
+              <td>번</td>
+              <td>째</td>
+          </tr>
+        </table>
+
+        <br>
+
+        <table border="1" cellpadding="5" style="border-collapse:collapse">
+          <tr>  <!--table row-->
+            <th>제목 셀 1</th>  <!-- table head-->
+            <td>1행 1열</td>  <!--table data-->
+            <td>1행 2열</td>
+          </tr>
+          <tr>
+            <th>제목 셀 2</th>
+            <td>2행 1열</td>
+            <td>2행 2열</td>
+          </tr>
+        </table>
+
+      </table>
+
+      <br>
+      
+      
+      <table border="1" cellpadding="5" style="border-collapse:collapse">
+        <caption>
+          <strong>자기소개서</strong>
+          <p>멋쟁이 사자처럼 HTML -2</p>
+        </caption>  
+        <tr>
+          <th>이름</th>
+          <td>홍예은</td>
+          <th>연락처</th>
+          <td>010-0000-0000</td>
+          </tr>
+          <tr>
+              <th>주소</th>
+              <!-- colspan = "3" : 셀 3개를 가로로 병합 -->
+              <td colspan="3">경기도 용인시 처인구 외대로 81</td>
+          </tr>
+          <tr>
+              <th>자기소개</th>
+              <!-- colspan = "3" : 셀 3개를 가로로 병합 -->
+              <td colspan="3">안녕하세요</td>
+          </tr>
+      </table>
+      
+      <table border="1" cellpadding="5" style="border-collapse: collapse">
+        <caption>
+          <strong>멋사 8기 인원 수</strong>
+        </caption>
+        <thead> <!-- 1행 2열-->
+          <tr>
+            <th>구분</th>
+            <th>인원 수</th>
+          </tr>
+        </thead>
+
+        <br>
+
+        <tbody> <!-- 3행 2열-->
+          <tr>
+            <td>오프라인 서울팀</td>
+            <td>6명</td>
+          </tr>
+          <tr>
+            <td>오프라인 모현팀</td>
+            <td>3명</td>
+          </tr>
+          <tr>
+            <td>온라인팀</td>
+            <td>3명</td>
+          </tr>
+        </tbody>
+
+        <tfoot> <!-- 1행 2열-->
+          <tr>
+            <td>합계</td>
+            <td>12명</td>
+          </tr>
+        </tfoot>
+
+        <!--
+          여러개의 셀을 추가할 때 :  tr>td*N 
+        -->
+      </table>
+    </body>
+    </html>

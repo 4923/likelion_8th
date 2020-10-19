@@ -1,0 +1,54 @@
+<!-- https://gist.github.com/jun108059/32f94be4692125b6bdc5013e9d5c2d12-->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- bootstrap4 CSS CDN 부분 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Likelion8th</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link active" href="{% url 'home' %}">Home</span></a>
+          <a class="nav-item nav-link" href="#">Blog</a>
+          <a class="nav-item nav-link" href="#">내정보</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- form 태그 사용하여: 게시글 작성, 등록 페이지 만들기 -->
+  <br>
+  <div class="container">
+    <!-- 제출버튼 눌렀을 때 DB에 저장되도록 url을 넘김 -->
+    <form action="{% url 'create' %}">
+      <h4>제목: </h4>
+      <input type="text" name="title">
+      <br>
+      <br>
+      <h4>본문: </h4>
+      <textarea cols=40 rows=10 name="body"></textarea>
+      <br>
+      <br>
+      <input class="btn btn-dark" type="submit" value="제출하기">
+    </form>
+  </div>
+
+</body>
+
+</html>

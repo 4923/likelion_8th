@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class = "btn-group">
+    <!-- home.html에서 new.html로 넘어가는 링크:  -->
+    <a href = "{% url 'new' %}" class = "btn btn-info">Add Post</a>
+  </div>
+  <p></p>
+  <table class = "table">
+    <!-- 목록 -->
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date</th>
+        <th scope="col">Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--템플릿 언어를 이용한 파이썬 문법. for문처럼 posts.all의 데이터 하나씩 뽑아 post에 담고 반복함-->
+      {% for post in posts.all %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <!-- title 부분을 template lang 이용해 detail + post.id로 연결하는 링크로 바꿔줌-->
+        <td> <a href = "{% url 'detail' post.id %}">{{ post.title }} </a> </td>
+        <td> {{ post.pub_date }} </td>
+        <!-- 전문대신 summary만 출력 -->
+        <td> {{ post.summary }}...</td>
+      </tr>
+      <!-- 반복문 종료 -->
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
